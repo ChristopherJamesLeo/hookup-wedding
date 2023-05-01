@@ -1,0 +1,741 @@
+:root {
+    --global-color : #f67e7d;
+    --global-text-gray-color : rgba(0, 0, 0, 0.4);
+    --global-text-light-gray-color : rgba(0, 0, 0, 0.05);
+    --global-white-color : #fff;
+    --global-black-color : #000;
+    --global-poppins-font : 'Poppins', sans-serif;
+    --global-great-vibes-font : 'Great Vibes', cursive;
+    --global-libre-font : 'Libre Caslon Text', serif;
+    --global-transition : all 0.3s linear 0s;
+}
+body {
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+    width: 7px;
+}
+body::-webkit-scrollbar-track {
+    background: linear-gradient(var(--global-white-color),var(--global-color));
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #f67e7d;
+    border: 2px solid var(--global-white-color);
+    border-radius: 3px;
+}
+/* Start Preloader */
+#preloader {
+    width: 100%;
+    height: 100vh;
+    background-color: antiquewhite;
+    position: fixed;
+    z-index: 100;
+ 
+    
+}
+
+.loader {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    transform: rotate(45deg) translate(-50px,-30px);
+    transform-origin: 40px 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    
+   }
+   
+   .loader div {
+    top: 32px;
+    left: 32px;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: var(--global-color);
+    animation: loader45 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+   }
+   
+   .loader div:after,
+   .loader div:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: var(--global-color);
+   }
+   
+   .loader div:before {
+    left: -24px;
+    border-radius: 50% 0 0 50%;
+   }
+   
+   .loader div:after {
+    top: -24px;
+    border-radius: 50% 50% 0 0;
+   }
+   
+   @keyframes loader45 {
+    0% {
+     transform: scale(0.95);
+    }
+   
+    5% {
+     transform: scale(1.1);
+    }
+   
+    39% {
+     transform: scale(0.85);
+    }
+   
+    45% {
+     transform: scale(1);
+    }
+   
+    60% {
+     transform: scale(0.95);
+    }
+   
+    100% {
+     transform: scale(0.9);
+    }
+   }
+/* End Preloader */
+/* Start Header */
+header {
+    /* height: 100vh; */
+    padding-bottom: 50px;
+    position: relative;
+
+}
+.header_bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+/* Start Header nav */
+.navbar {
+    font-family: var(--global-poppins-font);
+}
+.navbar.active {
+
+    width: 100%;
+    background-color: var(--global-white-color);
+    position: fixed;
+    z-index: 100;
+    animation: navani 0.5s linear 0s 1 forwards;
+}
+
+@keyframes navani {
+    0%{
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.navbar.active .navbar-brand {
+    color: var(--global-black-color);
+}
+.navbar-brand {
+    color: var(--global-white-color);
+    font-size: 30px;
+    font-weight: 900;
+}
+.navbar-toggler {
+    color: var(--global-text-gray-color);
+    font-weight: 600;
+    border: none;
+}
+.navbar-toggler:focus {
+    border: none;
+    box-shadow: none;
+}
+.navbar-toggler .btn_lines {
+    width: 25px;
+    height: 4px;
+    margin: 5px 0px;
+    background-color: var(--global-text-gray-color);
+    border-radius: 5px;
+}
+.navbar-nav .nav-link {
+    color: var(--global-white-color);
+    font-size: 18px;
+    position: relative;
+    transition: var(--global-transition);
+}
+.navbar-nav .nav-link:hover {
+    color: var(--global-color);
+}
+.navbar.active .navbar-nav .nav-link {
+    color: var(--global-black-color);
+}
+.navbar-nav .nav-link::before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: var(--global-color);
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    transform: scaleX(0);
+    transition: var(--global-transition); 
+}
+.navbar-nav .nav-link:hover {
+    color: var(--global-color);
+}
+.navbar-nav .nav-link:hover::before {
+    transform: scaleX(1);   
+}
+.navbar-nav .nav-link.active::before {
+    transform: scaleX(1);   
+}
+.navbar-nav .nav-link.active {
+    color: var(--global-color);
+}
+/* End Header Nav */
+
+/* Start Banner section */
+
+.banner_sub_title span {
+    color: var(--global-white-color);
+    font-size: 14px;
+    font-family: var(--global-poppins-font);
+    font-weight: 800;
+    letter-spacing: 7px;
+
+    position: relative;
+}
+.banner_sub_title span::before,.banner_sub_title span::after {
+    content: "";
+    width: 80%;
+    height: 3px;
+    background-color: var(--global-white-color);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.banner_sub_title span::before{
+    left: -100%;
+}
+.banner_sub_title span::after {
+    right: -100%;
+}
+.banner_title h1 {
+    color: var(--global-white-color);
+    font-size: 120px;
+    font-family: var(--global-great-vibes-font);
+}
+.banner_timer .counter {
+    margin-bottom: 20px;
+    color: var(--global-white-color);
+    font-size: 45px;
+    font-family: var(--global-poppins-font);
+    font-weight: 700;
+
+}
+.banner_timer span {
+    color: var(--global-white-color);
+    font-size: 16px;
+    font-family: var(--global-poppins-font);
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+.aniversity {
+    display: none;
+}
+.aniversity.active {
+    display: block;
+}
+.aniversity h4{
+    margin-top: 30px;
+    color: var(--global-white-color);
+    font-size: 50px;
+    font-family: var(--global-great-vibes-font);
+    letter-spacing: 10px;
+}
+
+/* End Banner Section */
+
+/* End Header */
+
+/* Start Invitation Letter Section */
+/* .invitation_content_container {
+    position: relative;
+} */
+.border_cross{
+    position: relative;
+}
+.border_cross::before,.border_cross::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.border_cross::before {
+    transform: rotate(1deg);
+}
+.border_cross::after {
+    transform: rotate(-1deg);
+}
+.invitaiton_cover_img {
+    background-image: url("../assets/imgs/background/about.jpg.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: scale(1.09);
+}
+@media(max-width:992px){
+    .invitaiton_cover_img {
+        transform: scale(1);
+    }
+}
+.invitaiton_letter_content {
+    padding: 100px 0px;
+}
+.invitaiton_letter_content h5 {
+    color: var(--global-text-gray-color);
+    font-family: var(--global-libre-font);
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.8;
+}
+.invitaiton_letter_content h3 {
+    text-transform: capitalize;
+    color: var(--global-color);
+    font-family: var(--global-great-vibes-font);
+    font-size: 80px;
+}
+.invitaiton_letter_content h1 {
+    color: var(--global-text-gray-color);
+    font-family: var(--global-libre-font);
+    font-size: 60px;
+}
+/* End Invitaiton Letter Section */
+
+/* Start Section Title */
+.section_title h1{
+    color: var(--global-color);
+    font-family: var(--global-great-vibes-font);
+    font-size: 120px;
+    position: relative;
+    z-index: 1;
+}
+.section_title h1::before {
+    content: "Bride & Groom";
+    width: 100%;
+    height: 100%;
+    color: var(--global-text-light-gray-color);
+    font-family: var(--global-poppins-font);
+    font-size: 130px;
+    font-weight: 900;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+/* End Sectin Title */
+
+/* Start Mr & Ms Info Section */
+.mr_ms_info_section {
+    position: relative;
+    padding: 45vh 0px;
+}
+.top_background ,.bottom_background {
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+}
+.top_background {
+    top: 0;
+}
+.bottom_background {
+    bottom: 0;
+}
+.mr_ms_info_main_container {
+    position: relative;
+    z-index: 1;
+}
+.mr_ms_info_container {
+    height: 700px;
+
+}
+.mr_ms_img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    transform: translateY(-50px);
+    position: relative;
+    z-index: 2;
+}
+.mr_ms_info_container h3 {
+    color: var(--global-black-color);
+    font-family: var(--global-poppins-font);
+    font-size: 40px;
+}
+.mr_ms_info_container .mr_ms_info {
+    color: var(--global-text-gray-color);
+    font-size: 20px;
+    font-family: var(--global-poppins-font);
+    font-weight: 500;
+    line-height: 1.7;
+}
+/* End Mr & Ms Info Section */
+
+/* Start Love Story Section */
+.love_story_section .section_title h1::before {
+    content: "Love Story";
+}
+.love_story_container {
+    position: relative;
+}
+.love_story_middle_bar {
+    width: 1px;
+    height: 100%;
+    background-color: #f67e7d;
+
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(2px);
+}
+.story_content_container {
+    position: relative;
+}
+.story_photo {
+    width: 120px;
+    height: 120px;
+    border: 5px solid var(--global-color);
+    border-radius: 50%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: absolute;
+    top: 0;
+}
+.story_content_container.left .story_photo {
+    right: -170px;
+}
+.story_content_container.right .story_photo {
+    left: -170px;
+}
+@media (max-width:768px){
+    .story_photo{
+        position: static;
+    }
+}
+.story_content_container span {
+    color: var(--global-color);
+    font-size: 16px;
+    font-family: var(--global-poppins-font);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.story_content_container h2 {
+    color: var(--global-black-color);
+    font-size: 30px;
+    font-family: var(--global-poppins-font);
+    font-weight: 500;
+}
+.story_content_container p {
+    color: var(--global-text-gray-color);
+    font-size: 20px;
+    font-family: var(--global-poppins-font);
+    font-weight: 500;
+    line-height: 1.7;
+}
+/* End Love Story Section */
+
+/* Start Sweet Message Section */
+.sweet_message_section {
+    background-color: #f8f9fa !important;
+}
+.sweet_message_section .section_title h1::before {
+    content: "Testimony";
+}
+
+#sweet_message_carousel .owl-dots {
+    display: block;
+}
+#sweet_message_carousel .owl-dot.active span {
+    background-color: var(--global-color);
+}
+.message_avator {
+    width: 100px;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.sweet_message_item {
+    padding: 30px 20px;
+    background-color: var(--global-white-color);
+}
+.sweet_message_item p,.sweet_message_item span {
+    color: var(--global-text-gray-color);
+    font-size: 20px;
+    font-family: var(--global-poppins-font);
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+.sweet_message_item h3 {
+    color: var(--global-black-color);
+    font-family: var(--global-poppins-font);
+    font-size: 25px;
+}
+/* End Sweet Message Section */
+
+/* Start Friend And Family Section */
+.friend_family_section .section_title h1::before {
+    content: "People";
+}
+.friend_info_item_container{
+    padding: 20px 5px;
+}
+.friend_info_item {
+    padding: 30px 0px;
+}
+.friend_info_img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 30px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+}
+.friend_name h3 {    
+    color: var(--global-black-color);
+    font-family: var(--global-poppins-font);
+    font-size: 25px;
+}
+.friend_name span {
+    color: var(--global-text-gray-color);
+    font-size: 20px;
+    font-family: var(--global-poppins-font);
+    font-weight: 500;
+    line-height: 1.7;
+}
+#friend_family_carouse .owl-dot.active span {
+    background-color: var(--global-color);
+}
+/* End Friend And Family Section */
+
+/* Start Place And Time Section */
+.place_time_section .section_title h1::before {
+    content: "Place";
+}
+.place_time_content_container {
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.place_time_content {
+    background-color: var(--global-white-color);
+    padding: 40px 20px;
+}
+.place_time_icon {
+    width: 70px;
+    height: 70px;
+}
+
+.place_time_content h3 {
+    color: var(--global-black-color);
+    font-family: var(--global-poppins-font);
+    font-size: 35px;
+    font-weight: 400;
+}
+.place_time_content p {
+    color: var(--global-text-gray-color);
+    font-size: 20px;
+    font-family: var(--global-poppins-font);
+    font-weight: 500;
+    line-height: 1.7;
+}
+.place_time_content a {
+    color: var(--global-color) !important;
+    font-family: var(--global-poppins-font);
+    font-size: 25px;
+}
+
+.place_time_content button {
+    padding: 10px;
+    color: var(--global-color);
+    background-color: transparent;
+
+    border: 1px solid var(--global-color);
+    font-weight: 500;
+
+}
+/* End Place And Time Section */
+
+/* Start Modal Area */
+.reception_modal,.ceremony_modal,.party_modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    animation: modalani 0.3s linear 0s 1 forwards;
+    display: none;
+}
+.reception_modal.active,.ceremony_modal.active,.party_modal.active {
+    display: block;
+}
+.modal_close_btn {
+    position: absolute;
+    right: 40px;
+    top: 0px;
+    font-size: 50px;
+    transition: var(--global-transition);
+    cursor: pointer;
+
+}
+.modal_close_btn:hover {
+    color: var(--global-color);
+}
+@keyframes modalani {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* End Modal Area */
+
+
+/* Start Atteneded Form Section */
+.attended_form_section {
+    background-color: #dcf4e6 !important;
+}
+.attended_form_section .section_title h1::before {
+    content: "RSVP";
+}
+.attended_form_container {
+    padding: 70px;
+    background-color: var(--global-white-color);
+}
+.attended_form_container form .form-control {
+    padding: 15px 10px;
+    color: var(--global-text-gray-color);
+    background-color: transparent;
+    font-family: var(--global-poppins-font);
+    font-size: 20px
+}
+.attended_form_container form .form-control:focus {
+    box-shadow: none;
+    outline: none;
+}
+.attended_form_container form .form-control::placeholder {
+    color: var(--global-text-gray-color);
+}
+.attended_form_container form .submit_btn {
+    padding: 15px 30px;
+    color: var(--global-white-color) !important;
+    background-color: var(--global-color) !important;
+    font-family: var(--global-poppins-font);
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 40px;
+    box-shadow: 5px 5px 20px var(--global-text-light-gray-color);
+}
+/* End Attended Form Section */
+
+/* Start Gallery Section */
+.gallery_section .section_title h1::before {
+    content: "Photo";
+}
+
+.gallery_img  {
+    display: inline-block;
+    width: 100%;
+    height: 450px;
+    position: relative;
+
+}
+.gallery_img  img {
+    object-fit: cover;
+}
+.gallery_img_overlayer {
+    width: 100%;
+    height: 100%;
+    background-color: #f67d7d80;
+
+    display: grid;
+    place-items: center;
+
+    opacity: 0;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: var(--global-transition);
+
+}
+.gallery_img_overlayer span {
+    width: 70px;
+    height: 70px;
+    background-color: var(--global-white-color);
+    border-radius: 50px;
+    display: grid;
+    place-items: center;
+}
+.gallery_img:hover .gallery_img_overlayer{
+    opacity: 1;
+}
+/* End Gallery Section */
+
+/* Start Footer Section */
+.footer_head h3 {
+    color: var(--global-black-color);
+    font-size: 25px;
+    font-family: var(--global-poppins-font);
+    font-weight: 900;
+}
+.footer_body p {
+    color: var(--global-text-gray-color);
+    font-size: 20px;
+    font-family: var(--global-poppins-font);
+    font-weight: 500;
+    line-height: 1.7;
+}
+.footer_foot a {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    color: var(--global-white-color);
+    background-color: var(--global-color);
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+}
+.footer_body ul li a {
+    color: var(--global-color) !important;
+    font-family: var(--global-poppins-font);
+    font-size: 20px;
+}
+.footer_body ul li span {
+    color: var(--global-color);
+    font-size: 25px;
+}
+/* End Footer Section */
+
