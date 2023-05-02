@@ -237,3 +237,9 @@ getmodelclosebtns.forEach(function(getmodelclosebtn){
 
 
 // End Place and time modal
+
+
+// Start Wow Animaiton
+new WOW().init();
+// End Wow Animation
+
